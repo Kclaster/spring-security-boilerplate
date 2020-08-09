@@ -1,4 +1,4 @@
-package com.spring_security.security_demo.model;
+package com.spring_security.security_demo.api.model;
 
 public class BookDto {
     private Integer id;

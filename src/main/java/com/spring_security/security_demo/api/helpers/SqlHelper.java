@@ -1,4 +1,4 @@
-package com.spring_security.security_demo.helpers;
+package com.spring_security.security_demo.api.helpers;
 
 import java.io.IOException;
 import java.io.InputStream;

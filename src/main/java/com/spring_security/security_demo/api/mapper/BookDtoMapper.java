@@ -1,11 +1,10 @@
-package com.spring_security.security_demo.mapper;
+package com.spring_security.security_demo.api.mapper;
 
-import com.spring_security.security_demo.model.BookDto;
+import com.spring_security.security_demo.api.model.BookDto;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.UUID;
 
 public class BookDtoMapper implements RowMapper<BookDto> {
     public BookDto mapRow(ResultSet rs, int i) throws SQLException {

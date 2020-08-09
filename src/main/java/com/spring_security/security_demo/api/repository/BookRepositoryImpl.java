@@ -1,8 +1,8 @@
-package com.spring_security.security_demo.repository;
+package com.spring_security.security_demo.api.repository;
 
-import com.spring_security.security_demo.helpers.SqlHelper;
-import com.spring_security.security_demo.mapper.BookDtoMapper;
-import com.spring_security.security_demo.model.BookDto;
+import com.spring_security.security_demo.api.helpers.SqlHelper;
+import com.spring_security.security_demo.api.mapper.BookDtoMapper;
+import com.spring_security.security_demo.api.model.BookDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;

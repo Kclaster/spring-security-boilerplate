@@ -1,7 +1,7 @@
-package com.spring_security.security_demo.controller;
+package com.spring_security.security_demo.api.controller;
 
-import com.spring_security.security_demo.model.BookDto;
-import com.spring_security.security_demo.repository.IBookRepository;
+import com.spring_security.security_demo.api.model.BookDto;
+import com.spring_security.security_demo.api.repository.IBookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
