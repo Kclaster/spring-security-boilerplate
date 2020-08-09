@@ -13,25 +13,35 @@ import java.util.UUID;
  */
 public class User implements UserDetails {
     private final UUID id;
-    private Set<? extends GrantedAuthority> grantedAuthorities;
+    private final Set<? extends GrantedAuthority> grantedAuthorities;
     private final String password;
     private final String username;
     private final Integer roleId;
-    private boolean isAccountNonExpired = true;
-    private boolean isAccountNonLocked = true;
-    private boolean isCredentialsNonExpired = true;
-    private boolean isEnabled = true;
+    private final boolean isAccountNonExpired;
+    private final boolean isAccountNonLocked;
+    private final boolean isCredentialsNonExpired;
+    private final boolean isEnabled;
 
 
     public User(
             UUID id,
             String username,
             String password,
+            Set<? extends GrantedAuthority> grantedAuthorities,
+            boolean isAccountNonExpired,
+            boolean isAccountNonLocked,
+            boolean isCredentialsNonExpired,
+            boolean isEnabled,
             Integer roleId
     ) {
         this.id = id;
+        this.grantedAuthorities = grantedAuthorities;
         this.password = password;
         this.username = username;
+        this.isAccountNonExpired = isAccountNonExpired;
+        this.isAccountNonLocked = isAccountNonLocked;
+        this.isCredentialsNonExpired = isCredentialsNonExpired;
+        this.isEnabled = isEnabled;
         this.roleId = roleId;
     }
 

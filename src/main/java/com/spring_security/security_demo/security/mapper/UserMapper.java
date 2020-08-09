@@ -1,5 +1,6 @@
 package com.spring_security.security_demo.security.mapper;
 
+import com.spring_security.security_demo.security.authorities.UserRole;
 import com.spring_security.security_demo.security.model.User;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -13,8 +14,12 @@ public class UserMapper implements RowMapper<User> {
                 UUID.fromString(rs.getString("id")),
                 rs.getString("username"),
                 rs.getString("password"),
-                rs.getInt("roleId")
-        );
+                UserRole.valueOf(rs.getInt("roleId")).get().getGrantedAuthorities(),
+                rs.getBoolean("isExpired"),
+                rs.getBoolean("isLocked"),
+                rs.getBoolean("isCredentialsExpired"),
+                rs.getBoolean("isEnabled"),
+                rs.getInt("roleId"));
 
         return user;
     }

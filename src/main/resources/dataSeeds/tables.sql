@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS books CASCADE;
-DROP TABLE IF EXISTS auth_user CASCADE;
+DROP TABLE IF EXISTS auth_users CASCADE;
 DROP TABLE IF EXISTS auth_user_roles CASCADE;
 
 
@@ -16,7 +16,7 @@ CREATE TABLE auth_user_roles
     title varchar(30) NOT NULL
 );
 
-CREATE TABLE auth_user
+CREATE TABLE auth_users
 (
     id uuid PRIMARY KEY NOT NULL,
     username varchar(30) NOT NULL,
