@@ -1,4 +1,4 @@
-package com.spring_security.security_demo.security.authorities;
+package com.spring_security.security_demo.security.authority;
 
 import com.google.common.collect.Sets;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -8,8 +8,8 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.spring_security.security_demo.security.authorities.GrantedAuthority.BOOK_READ;
-import static com.spring_security.security_demo.security.authorities.GrantedAuthority.BOOK_WRITE;
+import static com.spring_security.security_demo.security.authority.GrantedAuthority.BOOK_READ;
+import static com.spring_security.security_demo.security.authority.GrantedAuthority.BOOK_WRITE;
 
 public enum UserRole {
     // Assign granted Authorities to roles.

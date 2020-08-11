@@ -1,4 +1,4 @@
-package com.spring_security.security_demo.security.authorities;
+package com.spring_security.security_demo.security.authority;
 
 public enum GrantedAuthority {
     BOOK_READ("book:read"),

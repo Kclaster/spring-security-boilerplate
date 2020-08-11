@@ -1,6 +1,6 @@
 package com.spring_security.security_demo.security.mapper;
 
-import com.spring_security.security_demo.security.authorities.UserRole;
+import com.spring_security.security_demo.security.authority.UserRole;
 import com.spring_security.security_demo.security.model.User;
 import org.springframework.jdbc.core.RowMapper;
 
