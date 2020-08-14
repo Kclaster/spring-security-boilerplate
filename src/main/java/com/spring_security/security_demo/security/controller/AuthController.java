@@ -34,7 +34,7 @@ public class AuthController {
 
     @RequestMapping(value = "/authenticate")
     @PostMapping
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<Void> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         // Prove I am who I say I am
         try {
             authenticationManager.authenticate(
@@ -53,7 +53,7 @@ public class AuthController {
         responseHeaders.set(jwtConfig.getAuthorizationHeader(), jwtConfig.getTokenPrefix() + jwt);
 
 
-        return new ResponseEntity(responseHeaders, HttpStatus.OK);
+        return new ResponseEntity<>(responseHeaders, HttpStatus.OK);
 
     }
 }

@@ -84,10 +84,6 @@ public class User implements UserDetails {
         return isEnabled;
     }
 
-    public Set<? extends GrantedAuthority> getGrantedAuthorities() {
-        return grantedAuthorities;
-    }
-
     public Integer getRoleId() {
         return roleId;
     }

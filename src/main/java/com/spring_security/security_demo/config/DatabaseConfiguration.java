@@ -23,7 +23,7 @@ public class DatabaseConfiguration {
     @Bean
     @ConfigurationProperties(prefix = "datasource.core")
     public DataSource dataSource() {
-        DataSourceBuilder builder = DataSourceBuilder.create().create();
+        var builder = DataSourceBuilder.create();
         builder.url(dbUrl);
         builder.password(dbPasowrd);
         builder.username(dbUsername);

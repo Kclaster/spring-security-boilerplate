@@ -6,7 +6,6 @@ import com.spring_security.security_demo.security.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,7 +13,6 @@ import java.util.Optional;
 
 @Repository
 public class UserRepositoryImpl implements IUserRepository {
-    private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private final JdbcTemplate jdbcTemplate;
 
     /* Field Autowireds are bad.
@@ -23,11 +21,9 @@ public class UserRepositoryImpl implements IUserRepository {
     Here is why: http://olivergierke.de/2013/11/why-field-injection-is-evil/
      */
     @Autowired
-    public UserRepositoryImpl(@Qualifier("coreJdbcTemplate") JdbcTemplate jdbcTemplate,
-                              NamedParameterJdbcTemplate namedParameterJdbcTemplate
+    public UserRepositoryImpl(@Qualifier("coreJdbcTemplate") JdbcTemplate jdbcTemplate
     ) {
         this.jdbcTemplate = jdbcTemplate;
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
     @Override
@@ -43,12 +39,12 @@ public class UserRepositoryImpl implements IUserRepository {
             if (authUserEntities.size() == 1) {
                 return Optional.of(authUserEntities.get(0));
             }
-            return null;
+            return Optional.empty();
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        return null;
+        return Optional.empty();
     }
 
 }

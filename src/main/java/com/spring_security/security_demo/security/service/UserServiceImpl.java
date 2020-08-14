@@ -16,7 +16,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String username) {
         return iUserRepository
                 .selectUserByUsername(username)
                 .orElseThrow(() ->

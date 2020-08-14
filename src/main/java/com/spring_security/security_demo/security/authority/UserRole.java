@@ -25,6 +25,8 @@ public enum UserRole {
     private final Set<GrantedAuthority> authorities;
 
     public static class Constants {
+        private Constants () {}
+
         public static final int ROLE_ADMIN = 1;
         public static final int ROLE_USER = 2;
     }
@@ -32,14 +34,14 @@ public enum UserRole {
     public Set<GrantedAuthority> getAuthorities() { return authorities; }
 
     public Set<SimpleGrantedAuthority> getGrantedAuthorities() {
-        Set<SimpleGrantedAuthority> authorities = getAuthorities()
+        Set<SimpleGrantedAuthority> simpleAuthorities = getAuthorities()
                 .stream()
                 .map(authority -> new SimpleGrantedAuthority(authority.getAuthority()))
                 .collect(Collectors.toSet());
 
-        authorities.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
+        simpleAuthorities.add(new SimpleGrantedAuthority("ROLE_" + this.name()));
 
-        return authorities;
+        return simpleAuthorities;
     }
 
     public static Optional<UserRole> valueOf(int value) {

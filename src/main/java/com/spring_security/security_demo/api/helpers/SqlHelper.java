@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class SqlHelper {
+    private SqlHelper() {}
+    
     public static String sql(String fileName) {
         try {
             String resourcePath = String.format("sql/%s.sql", fileName);
