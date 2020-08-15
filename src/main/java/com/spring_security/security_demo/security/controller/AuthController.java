@@ -1,6 +1,7 @@
 package com.spring_security.security_demo.security.controller;
 
 import com.spring_security.security_demo.security.config.JwtConfig;
+import com.spring_security.security_demo.security.model.AuthUserRequest;
 import com.spring_security.security_demo.security.model.AuthenticationRequest;
 import com.spring_security.security_demo.security.service.IUserService;
 import com.spring_security.security_demo.security.util.JwtUtil;
@@ -12,10 +13,13 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 public class AuthController {
@@ -30,6 +34,22 @@ public class AuthController {
         this.iUserService = iUserService;
         this.jwtUtil = jwtUtil;
         this.jwtConfig = jwtConfig;
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> registerUserAccount(
+            @Valid @RequestBody AuthUserRequest authUserRequest,
+            Errors errors) throws NullPointerException {
+        if (errors.hasErrors()) {
+            return ResponseEntity.badRequest().body(errors.getAllErrors());
+        }
+        try {
+            iUserService.registerNewUserAccount(authUserRequest);
+
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @RequestMapping(value = "/authenticate")
